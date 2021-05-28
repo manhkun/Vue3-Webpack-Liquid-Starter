@@ -1,0 +1,3 @@
+<div id='cevoid-container' data-type='{% if type != nil %}{{ type }}{% else %}slider{% endif %}'
+{% if productId != nil %}data-product='{{productId}}'{% endif %}
+{% if productId == nil %}data-campaign='{% if collection != nil %}{{ collection }}{% else %}{{company}}{% endif %}'{% endif %}></div>
