@@ -1,12 +1,16 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
+  "parser": "vue-eslint-parser",
   extends: [
-    "airbnb-typescript/base"
+    "airbnb-typescript/base",
+    'plugin:vue/vue3-recommended',
   ],
   parserOptions: {
+    parser: "@typescript-eslint/parser",
     project: './tsconfig.json',
+    extraFileExtensions: [".vue"]
   },
   rules: {
-    "no-nonoctal-decimal-escape": "off",
+    // "no-nonoctal-decimal-escape": "off",
+    "no-param-reassign": ["error", { "props": false }]
   }
 };
