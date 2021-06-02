@@ -93,5 +93,6 @@ module.exports = {
     children: false,
     moduleAssets: false,
     excludeModules: false,
+    modules: false,
   },
 };
