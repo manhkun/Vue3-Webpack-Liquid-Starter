@@ -1,21 +1,22 @@
-const webpack = require("webpack");
-const { VueLoaderPlugin } = require("vue-loader");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+/* eslint-disable import/no-extraneous-dependencies */
+const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const paths = require("./paths");
+const paths = require('./paths');
 
 module.exports = {
-  entry: [paths.src + "/index.ts"],
+  entry: [`${paths.src}/index.ts`],
 
   output: {
     path: paths.build,
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
   },
 
   resolve: {
     extensions: ['.vue', '.ts', '.js', '.json'],
     alias: {
-      "@": paths.src,
+      '@': paths.src,
     },
   },
 
@@ -23,7 +24,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        use: "vue-loader",
+        use: 'vue-loader',
       },
       {
         test: /\.js$/,
@@ -31,13 +32,13 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-          }
-        ]
+          },
+        ],
       },
       {
         test: /\.ts?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(s*)css$/,
@@ -53,6 +54,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
+              // eslint-disable-next-line global-require
               plugins: () => [require('autoprefixer')],
               sourceMap: false,
             },
@@ -64,30 +66,32 @@ module.exports = {
             },
           },
         ],
-      }
+      },
     ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].css',
     }),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: 'true',
-      __VUE_PROD_DEVTOOLS__: 'false'
-    })
+      __VUE_PROD_DEVTOOLS__: 'false',
+    }),
   ],
   optimization: {
     minimizer: [
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
         parallel: true,
-        sourceMap: true
-      })
-    ]
+        sourceMap: true,
+      }),
+    ],
   },
   stats: {
     entrypoints: false,
     children: false,
-  }
+    moduleAssets: false,
+    excludeModules: false,
+  },
 };
