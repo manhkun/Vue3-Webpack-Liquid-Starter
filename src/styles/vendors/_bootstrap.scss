@@ -10,14 +10,14 @@
 
 .xo-container {
   width: 100%;
-  padding-right: $gutter-site;
-  padding-left: $gutter-site;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 
   @media (max-width: 767px) {
-    padding-left: $gutter-site-mobile;
-    padding-right: $gutter-site-mobile;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -41,20 +41,20 @@
 
 @media (min-width: 1200px) {
   .xo-container {
-    max-width: $width-site;
+    max-width: 1140px;
   }
 }
 
 .xo-container-fluid {
   width: 100%;
-  padding-right: $gutter-site;
-  padding-left: $gutter-site;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 
   @media (max-width: 767px) {
-    padding-left: $gutter-site-mobile;
-    padding-right: $gutter-site-mobile;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
